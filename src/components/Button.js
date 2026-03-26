@@ -1,6 +1,8 @@
 function Button(props) {
+    const classes = `button ${props.type || ""}`;
+
   return (
-    <button className="button">
+    <button className={classes}>
       {props.label}
     </button>
   );
