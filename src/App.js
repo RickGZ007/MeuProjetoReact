@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+
+const Nome = (props) => {
+  return (
+    <div className="estilo">
+     {props.texto}
+    </div>
+  )
+}
+ 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nome texto="Rick" />
+      <Nome texto="Morty" />
+      <Nome texto="Summer" />
+      <Nome texto="Beth" />
+      <Nome texto="Jerry" />
+      <Nome texto="Birdperson" />
+      <Nome texto="Squanchy" />
+      
     </div>
   );
 }
