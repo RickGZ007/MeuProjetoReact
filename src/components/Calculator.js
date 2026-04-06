@@ -7,7 +7,8 @@ import Display from './Display';
 function Calculator() {
   return (
    <div className="calculator">
-
+    
+// O display da calculadora, onde o resultado é mostrado
   <Display value="0.75" />
 
   <Button label="AC" type="triple" />
