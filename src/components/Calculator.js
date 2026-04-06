@@ -5,12 +5,6 @@ import Display from './Display';
 //import { render, screen } from '@testing-library/react';
 //import App from './App';
 
-// Teste para verificar se o botão de igual está sendo renderizado corretamente
-test('renders calculator button', () => {
-  render(<App />);
-  const button = screen.getByText('=');
-  expect(button).toBeInTheDocument();
-});
 
  // Componente principal da calculadora :)
  // Ele é responsável por renderizar o display e os botões da calculadora
