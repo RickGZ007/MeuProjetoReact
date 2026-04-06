@@ -1,6 +1,9 @@
 import Button from './Button';
 import Display from './Display';
 
+ // Componente principal da calculadora :)
+ // Ele é responsável por renderizar o display e os botões da calculadora
+
 function Calculator() {
   return (
    <div className="calculator">
