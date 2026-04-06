@@ -1,9 +1,11 @@
+import React from 'react';
 import Button from './Button';
 import Display from './Display';
 
 import { render, screen } from '@testing-library/react';
-import App from './App';
+//import App from './App';
 
+// Teste para verificar se o botão de igual está sendo renderizado corretamente
 test('renders calculator button', () => {
   render(<App />);
   const button = screen.getByText('=');
