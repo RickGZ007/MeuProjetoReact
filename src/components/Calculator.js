@@ -1,13 +1,22 @@
 import Button from './Button';
 import Display from './Display';
 
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders calculator button', () => {
+  render(<App />);
+  const button = screen.getByText('=');
+  expect(button).toBeInTheDocument();
+});
+
  // Componente principal da calculadora :)
  // Ele é responsável por renderizar o display e os botões da calculadora
 
 function Calculator() {
   return (
    <div className="calculator">
-    
+
 // O display da calculadora, onde o resultado é mostrado
   <Display value="0.75" />
 
