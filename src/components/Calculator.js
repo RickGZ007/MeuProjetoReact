@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from './Button';
 import Display from './Display';
-git 
-import { render, screen } from '@testing-library/react';
+
+//import { render, screen } from '@testing-library/react';
 //import App from './App';
 
 // Teste para verificar se o botão de igual está sendo renderizado corretamente
