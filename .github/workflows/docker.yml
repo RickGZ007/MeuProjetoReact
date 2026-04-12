@@ -2,7 +2,7 @@ name: CD - DockerHub Deploy
 # Este workflow é acionado em pushes para a branch "main". Ele faz o build da imagem Docker do projeto e a envia para o DockerHub. Certifique-se de configurar os segredos DOCKER_USERNAME e DOCKER_PASSWORD no repositório para autenticação.
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   docker:
