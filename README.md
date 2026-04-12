@@ -68,3 +68,80 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+🐳 Guia Rápido: Docker mDocker
+1. Preparar Arquivos (Na Raiz)
+Crie o arquivo Dockerfile:
+
+Dockerfile
+FROM node:18-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+Crie o arquivo .dockerignore:
+
+Plaintext
+node_modules
+build
+.git
+.gitignore
+Dockerfile
+
+2. Comandos de Inicialização
+Siga esta ordem no terminal:
+
+Passo 1: Gerar a imagem
+
+docker build -t meu-projeto-react .
+
+Passo 2: Conferir se foi criada
+
+docker images
+
+Passo 3: Subir o container
+
+docker run -p 8080:80 meu-projeto-react
+
+3. Acesso
+🔗 Acesse em: http://localhost:8080
+
+Nota: Se estiver usando Vite, mude /app/build para /app/dist no Dockerfile.
+
+
+ 🔄Ciclo de Uso do DockerCenário A: Não mudei o código (Apenas reiniciar)Se você já buildou a imagem antes e só quer subir o que já estava pronto, não precisa criar um container novo.
+ Verifique o ID ou Nome do container parado: 
+ 
+ docker ps -a
+
+Inicie o container existente:
+
+docker start ecstatic_sammet
+
+(Troque ecstatic_sammet pelo nome que aparecer no seu terminal).
+
+Cenário B: Mudei o código (Atualizar aplicação)Como o Docker cria uma "foto" estática do código no momento do build, se você alterou uma linha no React, precisa de uma nova imagem e um novo container.Gere uma nova imagem com as alterações:
+docker build -t meu-projeto-react .
+
+Suba o novo container (Limpando o antigo):
+docker run -p 8080:80 --rm meu-projeto-react
+
+A flag --rm é essencial aqui: ela deleta o container assim que você o para, evitando acumular containers inúteis na sua lista.
+
+📋 Resumo de Comandos
+Objetivo
+
+Limpar containers parados	docker container prune
+
+Parar um container rodando	docker stop <nome_ou_id>
+
+Ver todos os containers	docker ps -a
+
+Build + Rodar (Padrão Dev)	
+docker build -t nome . seguido de docker run --rm ...
