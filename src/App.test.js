@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders calculator button', () => {
+test('rrenderiza botão de login', () => {
   render(<App />);
-  const button = screen.getByText('=');
+  const button = screen.getByText('Acessar');
   expect(button).toBeInTheDocument();
 });
