@@ -1,4 +1,4 @@
-markdown_content = """# 🚀 Meu Projeto React
+# 🚀 Meu Projeto React
 
 Este projeto é uma aplicação **React** desenvolvida para fins de estudo e prática, focada em boas práticas de desenvolvimento e agora totalmente preparada para rodar em ambientes isolados utilizando **Docker**.
 
