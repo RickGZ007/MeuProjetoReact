@@ -5,8 +5,18 @@ function Login() {
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
 
+  // ARRAY de usuários
+  const usuarios = [
+    { email: "eduardo.lino@pucpr.br", senha: "123456" },
+    { email: "ricardo.cedeno@pucpr.br", senha: "123456" }
+  ];
+
   const handleLogin = () => {
-    if (email === "ricardo.cedeno@pucpr.br" && senha === "123456") {
+    const usuarioValido = usuarios.find(
+      (user) => user.email === email && user.senha === senha
+    );
+
+    if (usuarioValido) {
       setMensagem("Acessado com sucesso!");
     } else {
       setMensagem("Usuário ou senha incorretos!");
