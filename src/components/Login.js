@@ -31,19 +31,19 @@ function Login() {
       <form onSubmit={handleLogin}>
         <input
           type="email"
-          placeholder="Digite seu email"  // 🔥 IMPORTANTE
+          placeholder="Digite seu email"  
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
           type="password"
-          placeholder="Digite sua senha"  // 🔥 IMPORTANTE
+          placeholder="Digite sua senha"  
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
 
-        <button type="submit">Entrar</button> {/* 🔥 IMPORTANTE */}
+        <button type="submit">Entrar</button> 
       </form>
 
       {mensagem && <p>{mensagem}</p>}
