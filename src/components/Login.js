@@ -5,21 +5,22 @@ function Login() {
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
 
-  // ARRAY de usuários
   const usuarios = [
     { email: "eduardo.lino@pucpr.br", senha: "123456" },
     { email: "ricardo.cedeno@pucpr.br", senha: "123456" }
   ];
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+
     const usuarioValido = usuarios.find(
       (user) => user.email === email && user.senha === senha
     );
 
     if (usuarioValido) {
-      setMensagem("Acessado com sucesso!");
+      setMensagem("Login realizado com sucesso");
     } else {
-      setMensagem("Usuário ou senha incorretos!");
+      setMensagem("Erro: email ou senha inválidos");
     }
   };
 
@@ -27,23 +28,25 @@ function Login() {
     <div className="login-container">
       <h2>Login</h2>
 
-      <input
-        type="email"
-        placeholder="E-mail"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Digite seu email"  // 🔥 IMPORTANTE
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <input
-        type="password"
-        placeholder="Senha"
-        value={senha}
-        onChange={(e) => setSenha(e.target.value)}
-      />
+        <input
+          type="password"
+          placeholder="Digite sua senha"  // 🔥 IMPORTANTE
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
+        />
 
-      <button onClick={handleLogin}>Acessar</button>
+        <button type="submit">Entrar</button> {/* 🔥 IMPORTANTE */}
+      </form>
 
-      <p>{mensagem}</p>
+      {mensagem && <p>{mensagem}</p>}
     </div>
   );
 }
