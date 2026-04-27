@@ -33,13 +33,5 @@ jobs:
         if: always()
         run: |
           curl -H "Content-Type: application/json" \
-          -d "{
-            \"content\": \"📢 **GitHub Actions Finalizado** 🚀
-            👤 Autor: ${{ github.actor }}
-            📂 Repositório: ${{ github.repository }}
-            🌿 Branch: ${{ github.ref_name }}
-            ✅ Status: ${{ job.status }}
-            🔗 Execução: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            \"
-          }" \
+          -d "{\"content\":\"📢 CI Finalizado | Status: ${{ job.status }} | Autor: ${{ github.actor }}\"}" \
           ${{ secrets.DISCORD_WEBHOOK_URL }}
