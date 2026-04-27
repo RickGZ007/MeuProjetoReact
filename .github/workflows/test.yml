@@ -33,6 +33,6 @@ jobs:
       - name: Notificar Discord
         if: always()
         run: |
-          curl -H "Content-Type: application/json" \
-          -d "{\"content\":\"📢 CI Finalizado | Status: ${{ job.status }} | Autor: ${{ github.actor }}\"}" \
+          curl -X POST -H "Content-Type: application/json" \
+          -d "{\"content\":\"📢 CI finalizado | Status: ${{ job.status }} | Autor: ${{ github.actor }}\"}" \
           ${{ secrets.DISCORD_WEBHOOK_URL }}
