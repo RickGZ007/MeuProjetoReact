@@ -1,5 +1,5 @@
 name: Testes React
- // Este workflow é acionado em pushes e pull requests para a branch master
+
 on:
   push:
     branches: [ "master" ]
@@ -25,7 +25,6 @@ jobs:
       - name: Rodar testes
         run: npm test -- --watchAll=false
 
-          // etapa de notificação do Discord após a execução dos testes, independentemente do resultado
       - name: Notificar Discord
         if: always()
         run: |
