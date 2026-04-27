@@ -1,11 +1,8 @@
 name: Testes React
-  /*
-    Este workflow é acionado em pushes e pull requests para a branch master.
-    Ele executa os testes do projeto React e, independentemente do resultado, envia uma notificação para um canal do Discord.
-  */
+
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "feature/login-tests" ]
 
   pull_request:
     branches: [ "master" ]
@@ -28,11 +25,8 @@ jobs:
 
       - name: Rodar testes
         run: npm test -- --watchAll=false
-          
-         // teste 
+
       - name: Notificar Discord
         if: always()
         run: |
-          curl -X POST -H "Content-Type: application/json" \
-          -d "{\"content\":\"📢 CI finalizado | Status: ${{ job.status }} | Autor: ${{ github.actor }}\"}" \
-          ${{ secrets.DISCORD_WEBHOOK_URL }}
+          curl -X POST -H "Content-Type: application/json" -d "{\"content\":\"📢 CI finalizado | Status: ${{ job.status }} | Autor: ${{ github.actor }}\"}" ${{ secrets.DISCORD_WEBHOOK_URL }}
