@@ -1,12 +1,7 @@
-import Login from "./components/Login";
-import "./App.css";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
-  return (
-    <div className="App">
-      <Login />
-    </div>
-  );
+  return <AppRoutes />;
 }
 
 export default App;
