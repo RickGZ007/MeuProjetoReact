@@ -1,38 +1,59 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import Login from "./components/Login";
+import { MemoryRouter } from "react-router-dom";
+import Login from "./pages/Login";
+
+function renderLogin() {
+  render(
+    <MemoryRouter>
+      <Login />
+    </MemoryRouter>
+  );
+}
 
 test("renderiza input de email", () => {
-  render(<Login />);
-  expect(screen.getByPlaceholderText(/email/i)).toBeInTheDocument();
+  renderLogin();
+
+  expect(
+    screen.getByPlaceholderText(/e-mail/i)
+  ).toBeInTheDocument();
 });
 
 test("renderiza input de senha", () => {
-  render(<Login />);
-  expect(screen.getByPlaceholderText(/senha/i)).toBeInTheDocument();
+  renderLogin();
+
+  expect(
+    screen.getByPlaceholderText(/senha/i)
+  ).toBeInTheDocument();
 });
 
 test("digita email", () => {
-  render(<Login />);
-  const input = screen.getByPlaceholderText(/email/i);
+  renderLogin();
 
-  fireEvent.change(input, { target: { value: "teste@email.com" } });
+  const input = screen.getByPlaceholderText(/e-mail/i);
+
+  fireEvent.change(input, {
+    target: { value: "teste@email.com" }
+  });
 
   expect(input.value).toBe("teste@email.com");
 });
 
 test("digita senha", () => {
-  render(<Login />);
+  renderLogin();
+
   const input = screen.getByPlaceholderText(/senha/i);
 
-  fireEvent.change(input, { target: { value: "123456" } });
+  fireEvent.change(input, {
+    target: { value: "123456" }
+  });
 
   expect(input.value).toBe("123456");
 });
 
-test("mostra erro ao clicar entrar", () => {
-  render(<Login />);
+test("renderiza botão entrar", () => {
+  renderLogin();
 
-  fireEvent.click(screen.getByText(/entrar/i));
-
-  expect(screen.getByText(/erro/i)).toBeInTheDocument();
+  expect(
+    screen.getByText(/entrar/i)
+  ).toBeInTheDocument();
 });

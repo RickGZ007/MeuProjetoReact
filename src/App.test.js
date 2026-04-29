@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renderiza botão de login', () => {
+test("renderiza tela login", () => {
   render(<App />);
-  const button = screen.getByText(/entrar/i);
-  expect(button).toBeInTheDocument();
+  expect(screen.getByText(/login/i)).toBeInTheDocument();
 });
