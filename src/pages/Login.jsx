@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import logo from "../assets/logo1.jpeg";
-
 import { auth } from "../services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+
+import logo from "../assets/logo1.jpeg";
 
 function Login() {
   const navigate = useNavigate();
@@ -15,12 +15,15 @@ function Login() {
 
   async function entrar() {
     try {
+      setMensagem("");
+
       await signInWithEmailAndPassword(auth, email, senha);
 
       navigate("/principal");
 
     } catch (error) {
       setMensagem("Email ou senha inválidos.");
+      setSenha("");
     }
   }
 
@@ -28,6 +31,7 @@ function Login() {
     <div className="container">
       <div className="card">
 
+        {/* LOGO */}
         <img
           src={logo}
           alt="Logo"
@@ -39,13 +43,21 @@ function Login() {
         <input
           type="email"
           placeholder="Digite seu e-mail"
-          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setMensagem("");
+          }}
         />
 
         <input
           type="password"
           placeholder="Digite sua senha"
-          onChange={(e) => setSenha(e.target.value)}
+          value={senha}
+          onChange={(e) => {
+            setSenha(e.target.value);
+            setMensagem("");
+          }}
         />
 
         {mensagem && (
