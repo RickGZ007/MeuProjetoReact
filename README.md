@@ -5,7 +5,7 @@ Aplicação web desenvolvida em **React** com sistema completo de **Cadastro, Lo
 ## 🌐 Acesso Online
 
 🔗 Projeto publicado:
-https://projetosomativa2.netlify.app/
+https://meuprojetoreact.netlify.app/
 
 ---
 
