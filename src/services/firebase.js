@@ -14,8 +14,8 @@ const firebaseConfig = {
 
 
 /* TESTE .ENV */
-console.log("API KEY:", process.env.REACT_APP_API_KEY);
-console.log("PROJECT ID:", process.env.REACT_APP_PROJECT_ID);
+console.log("API KEY:", process.env.REACT_APP_FIREBASE_API_KEY);
+console.log("PROJECT ID:", process.env.REACT_APP_FIREBASE_PROJECT_ID);
 
 /* INICIA FIREBASE */
 const app = initializeApp(firebaseConfig);
